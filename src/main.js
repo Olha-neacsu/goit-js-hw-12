@@ -4,9 +4,10 @@ import iziToast from 'izitoast';
 import "izitoast/dist/css/iziToast.min.css";
 
 import { getImagesByQuery } from './js/pixabay-api';
-import { createGallery, clearGallery, showLoader, hideLoader, showLoadMoreButton, hideLoadMoreButton } from './js/render-functions';
+import { createGallery, clearGallery, showLoader, hideLoader, showLoadMoreButton, hideLoadMoreButton, showEndMessage, hideEndMessage } from './js/render-functions';
 
 hideLoadMoreButton();
+hideEndMessage();
 hideLoader();
 
 const form = document.querySelector('.form');
@@ -39,33 +40,6 @@ form.addEventListener('submit', async function handleSearch(event) {
     hideLoadMoreButton();
     showLoader();
 
-//     try {
-//         const images = await getImagesByQuery(query);
-
-//         await new Promise(resolve => setTimeout(resolve, 2000));
-
-//         if (images.length === 0) {
-//             iziToast.warning({
-//                 title: 'No results',
-//                 message: `No images found for "${query}".  Try again.`,
-//                 position: 'topRight',
-//             });
-//             input.value = '';
-//         } else {
-//             createGallery(images);
-//             input.value = '';
-//         }
-//     } catch (error) {
-//         iziToast.error({
-//             title: 'Error',
-//             message: `Something went wrong: ${error.message}.`,
-//             position: 'topRight',
-//         });
-//     } finally {
-//         hideLoader();
-//     }
-// });
-
     try {
         const data = await getImagesByQuery(currentQuery, currentPage);
         totalHits = data.totalHits;
@@ -86,14 +60,12 @@ form.addEventListener('submit', async function handleSearch(event) {
 
             if (loadedImages < totalHits) {
                 showLoadMoreButton();
+                hideEndMessage();
             } else {
                 hideLoadMoreButton();
-                iziToast.info({
-          title: 'End of Results',
-          message: `You've reached the end of search results.`,
-          position: 'topRight',
-        });
-     }
+                showEndMessage();
+            }
+
 
             input.value = '';
         }
@@ -126,16 +98,14 @@ loadMoreBtn.addEventListener('click', async () => {
 
         const loadedImages = currentPage * IMAGES_PER_PAGE;
 
-        if (loadedImages >= totalHits) {
-            hideLoadMoreButton();
-            iziToast.info({
-                title: 'End of Results',
-                message: `We're sorry, but you've reached the end of search results.`,
-                position: 'topRight',
-            });
-        } else {
+        if (loadedImages < totalHits) {
             showLoadMoreButton();
+            hideEndMessage();
+        } else {
+            hideLoadMoreButton();
+            showEndMessage();
         }
+
     } catch (error) {
         iziToast.error({
             title: 'Error',

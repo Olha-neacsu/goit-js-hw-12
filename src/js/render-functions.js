@@ -46,23 +46,24 @@ export function clearGallery() {
   
 export function showLoader() {
   document.querySelector('.loader').classList.remove('hidden');
-    // const loader = document.querySelector('.loader');
-    // loader.classList.remove('hidden');
   }
 
 export function hideLoader() {
   document.querySelector('.loader').classList.add('hidden');
-    // const loader = document.querySelector('.loader');
-    // loader.classList.add('hidden');
 }
   
 export function showLoadMoreButton() {
   document.querySelector('.load-more').classList.remove('hidden');
-
-  // loadMoreBtn.classList.remove('hidden');
 }
 
 export function hideLoadMoreButton() {
     document.querySelector('.load-more').classList.add('hidden');
-  // loadMoreBtn.classList.add('hidden');
+}
+
+export function showEndMessage() {
+  document.querySelector('.text-note').classList.remove('hidden');
+}
+
+export function hideEndMessage() {
+  document.querySelector('.text-note').classList.add('hidden');
 }

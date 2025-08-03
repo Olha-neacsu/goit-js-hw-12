@@ -164,10 +164,14 @@ button:hover {
   transition: background-color 0.3s ease;
 }
 
-/* .hidden {
-  display: none;
-} */
-
 .load-more:hover {
   background-color: #6b50ff;
+}
+
+.text-note {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }
