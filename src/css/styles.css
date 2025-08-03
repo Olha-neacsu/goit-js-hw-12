@@ -1,7 +1,13 @@
-*/ body {
+body {
   font-family: 'Montserrat', sans-serif;
   padding: 0;
   margin: 0;
+  background-color: #fff;
+  background-image: url(../img/donut-pattern-6829117_640-min.png);
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  list-style: none;
 }
 
 .form {
@@ -40,13 +46,14 @@ button {
   height: 100px;
   background: #4e75ff;
   border: none;
-  background: linear-gradient(135deg, #4e75ff, #6b50ff);
-  transition: background 0.5s ease, transform 0.5s ease;
+  background: linear-gradient(300deg, #c85263, #6751e9);
+  transition: background 1s ease, transform 1s ease;
+  cursor: pointer;
 }
 
 button:hover {
-  background: linear-gradient(135deg, #6b50ff, #4e75ff);
-  transform: scale(1.05);
+  background: linear-gradient(200deg, #dc26b8, #298cef);
+  transform: scale(0.85);
 }
 
 .gallery {
@@ -58,7 +65,6 @@ button:hover {
   gap: 24px;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
 .gallery-item {
@@ -73,7 +79,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid #808080;
+  border: 1px groove #8d7765;
   border-radius: 8px;
   height: 100%;
   width: 100%;
@@ -92,6 +98,7 @@ button:hover {
   justify-content: space-between;
   padding: 8px 16px;
   gap: 8px;
+  background-color: rgb(244, 255, 90);
 }
 
 .image-stats li {
@@ -161,7 +168,7 @@ button:hover {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 1s ease, transform 1s ease;
 }
 
 .load-more:hover {

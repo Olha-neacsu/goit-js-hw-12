@@ -99,7 +99,7 @@ loadMoreBtn.addEventListener('click', async () => {
         });
 
         const loadedImages = currentPage * IMAGES_PER_PAGE;
-
+hideLoader();
         if (loadedImages < totalHits) {
             showLoadMoreButton();
             hideEndMessage();
