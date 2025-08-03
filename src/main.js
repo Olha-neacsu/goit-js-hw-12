@@ -106,6 +106,13 @@ loadMoreBtn.addEventListener('click', async () => {
         } else {
             hideLoadMoreButton();
             showEndMessage();
+            iziToast.info({
+            title: 'End of search',
+            message: "We're sorry, but you've reached the end of search results.",
+            position: 'topRight',
+            color: 'orange',
+        });
+        return;
         }
 
     } catch (error) {
