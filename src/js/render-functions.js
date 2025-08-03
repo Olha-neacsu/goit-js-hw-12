@@ -2,6 +2,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryContainer = document.querySelector('.gallery');
+const loadMoreBtn = document.querySelector('.load-more');
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionsDelay: 250,
@@ -21,7 +22,7 @@ export function createGallery(images) {
       <li class="gallery-item">
       <a href="${largeImageURL}" class="gallery-item">
       <div class="image-card">
-        <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+        <img src="${webformatURL}" alt="" loading="lazy" />
         <ul class="image-stats">
           <li><b>Likes</b> ${likes}</li>
           <li><b>Views</b> ${views}</li>
@@ -44,11 +45,24 @@ export function clearGallery() {
 }
   
 export function showLoader() {
-    const loader = document.querySelector('.loader');
-    loader.classList.remove('hidden');
+  document.querySelector('.loader').classList.remove('hidden');
+    // const loader = document.querySelector('.loader');
+    // loader.classList.remove('hidden');
   }
 
 export function hideLoader() {
-    const loader = document.querySelector('.loader');
-    loader.classList.add('hidden');
-  }
+  document.querySelector('.loader').classList.add('hidden');
+    // const loader = document.querySelector('.loader');
+    // loader.classList.add('hidden');
+}
+  
+export function showLoadMoreButton() {
+  document.querySelector('.load-more').classList.remove('hidden');
+
+  // loadMoreBtn.classList.remove('hidden');
+}
+
+export function hideLoadMoreButton() {
+    document.querySelector('.load-more').classList.add('hidden');
+  // loadMoreBtn.classList.add('hidden');
+}

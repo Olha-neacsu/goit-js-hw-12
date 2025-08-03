@@ -149,3 +149,25 @@ button:hover {
     transform: translate(0px, 0px) rotate(-45deg);
   }
 }
+
+.load-more {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background-color: #4e75ff;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* .hidden {
+  display: none;
+} */
+
+.load-more:hover {
+  background-color: #6b50ff;
+}
