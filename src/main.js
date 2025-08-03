@@ -29,7 +29,7 @@ form.addEventListener('submit', async function handleSearch(event) {
             title: 'Empty',
             message: 'Type something to search.',
             position: 'topRight',
-            color: 'red',
+            color: 'orange',
         });
         return;
     }
@@ -39,6 +39,7 @@ form.addEventListener('submit', async function handleSearch(event) {
     clearGallery();
     hideLoadMoreButton();
     showLoader();
+    hideEndMessage();
 
     try {
         const data = await getImagesByQuery(currentQuery, currentPage);
@@ -51,6 +52,7 @@ form.addEventListener('submit', async function handleSearch(event) {
                 title: 'No results',
                 message: `No images found for "${query}".`,
                 position: 'topRight',
+                color: 'red',
             });
             input.value = '';
         } else {
